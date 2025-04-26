@@ -1,0 +1,97 @@
+{
+	"python_template": {
+		"prefix": "template",
+		"body": [
+			"#library",
+			"import sys, re",
+			"from math import ceil, floor, sqrt, isqrt, pi, gcd, comb",
+			"from collections import deque, Counter",
+			"from bisect import bisect, bisect_left, bisect_right",
+			"from functools import lru_cache",
+			"from itertools import permutations, combinations",
+			"",
+			"sys.setrecursionlimit(10**6)",
+			"INF = float('inf')",
+			"",
+			"#def",
+			"",
+			"#main",
+			"def main():",
+			"\t$1",
+			"",
+			"if __name__ == '__main__':",
+			"\tmain()"
+		],
+	},
+	"N:１入力(int)": {
+	  "prefix": "N =",
+	  "body": [
+		"N = int(input())",
+		"$1"
+	]
+
+	},
+	"S:１入力(string)": {
+	  "prefix": "S =",
+	  "body": [
+		"S = input()",
+		"$1"
+	  ]
+	},
+	"N, M:2入力(int)": {
+	  "prefix": "N, M =",
+	  "body": [
+		"N, M = map(int,input().split())",
+		"$1"
+	  ]
+	},
+	"H, W:2入力(縦横)": {
+	  "prefix": "H, W =",
+	  "body": [
+		"H, W = map(int,input().split())",
+		"$1"
+	  ]
+	},
+	"複数回の(A, B)を別々に保存": {
+		"prefix": "A, B = [], []",
+		"body": [
+			"A, B = [], []",
+			"for _ in range(N):",
+			"\ta, b = map(int, input().split(' '))",
+			"\tA.append(a)",
+			"\tB.append(b)",
+			"$1"
+		]
+	},
+	"複数回の１入力(int)": {
+		"prefix": "L = [int(input()) for _ in range(N)]",
+		"body": [
+			"L = [int(input()) for _ in range(N)]",
+			"$1"
+		]
+	},
+
+	"複数回のN(int)入力": {
+		"prefix": "Q = [list(map(int, input().split(' '))) for _ in range(N)]",
+		"body": [
+			"Q = [list(map(int, input().split(' '))) for _ in range(N)]",
+			"$1"
+		]
+	},
+	"[A_1, A_2, A_3, ...]": {
+		"prefix": "A = list(map(int, input().split(' ')))",
+		"body": [
+			"A = list(map(int, input().split(' ')))",
+			"$1"
+		]
+	},
+	"['s', 't', 'r', 'i', 'n', 'g' ...]": {
+		"prefix": "S = list(input())",
+		"body": [
+			"S = list(input())",
+			"$1"
+		]
+	},
+
+
+  }
