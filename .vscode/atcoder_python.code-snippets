@@ -8,7 +8,7 @@
 			"from collections import deque, Counter",
 			"from bisect import bisect, bisect_left, bisect_right",
 			"from functools import lru_cache",
-			"from itertools import permutations, combinations", "product"
+			"from itertools import permutations, combinations, product",
 			"",
 			"sys.setrecursionlimit(10**6)",
 			"INF = float('inf')",
@@ -30,7 +30,7 @@
 	  "body": [
 		"N = int(input())",
 		"$1"
-	]
+	  ]
 
 	},
 	"S:１入力(string)": {
@@ -98,38 +98,69 @@
 	"UnionFind": {
 		"prefix": "unionfind",
 		"body": [
-      "class UnionFind:",
-      "    def __init__(self, n):",
-      "        self.n = n",
-      "        self.parent_size = [-1] * n",
-      "",
-      "    def leader(self, a):",
-      "        if self.parent_size[a] < 0:",
-      "            return a",
-      "        self.parent_size[a] = self.leader(self.parent_size[a])",
-      "        return self.parent_size[a]",
-      "",
-      "    def merge(self, a, b):",
-      "        x, y = self.leader(a), self.leader(b)",
-      "        if x == y:",
-      "            return",
-      "        if abs(self.parent_size[x]) < abs(self.parent_size[y]):",
-      "            x, y = y, x",
-      "        self.parent_size[x] += self.parent_size[y]",
-      "        self.parent_size[y] = x",
-      "",
-      "    def same(self, a, b):",
-      "        return self.leader(a) == self.leader(b)",
-      "",
-      "    def size(self, a):",
-      "        return abs(self.parent_size[self.leader(a)])",
-      "",
-      "    def groups(self):",
-      "        result = [[] for _ in range(self.n)]",
-      "        for i in range(self.n):",
-      "            result[self.leader(i)].append(i)",
-      "        return [r for r in result if r]",
-      "$1"                                   // 最終カーソル位置
-    ]
+			"class UnionFind:",
+			"    def __init__(self, n):",
+			"        self.n = n",
+			"        self.parent_size = [-1] * n",
+			"",
+			"    def leader(self, a):",
+			"        if self.parent_size[a] < 0:",
+			"            return a",
+			"        self.parent_size[a] = self.leader(self.parent_size[a])",
+			"        return self.parent_size[a]",
+			"",
+			"    def merge(self, a, b):",
+			"        x, y = self.leader(a), self.leader(b)",
+			"        if x == y:",
+			"            return",
+			"        if abs(self.parent_size[x]) < abs(self.parent_size[y]):",
+			"            x, y = y, x",
+			"        self.parent_size[x] += self.parent_size[y]",
+			"        self.parent_size[y] = x",
+			"",
+			"    def same(self, a, b):",
+			"        return self.leader(a) == self.leader(b)",
+			"",
+			"    def size(self, a):",
+			"        return abs(self.parent_size[self.leader(a)])",
+			"",
+			"    def groups(self):",
+			"        result = [[] for _ in range(self.n)]",
+			"        for i in range(self.n):",
+			"            result[self.leader(i)].append(i)",
+			"        return [r for r in result if r]",
+			"$1"                                   
+		]
 	},
-  }
+
+	"素因数分解 prime_factorize": {
+		"prefix": "prime_factorize",
+		"body": [
+			"def prime_factorize(n):",
+			"    \"\"\"",
+			"    素因数分解：整数 n を素因数分解して、素因数のリストを返す。",
+			"",
+			"    Parameters:",
+			"        n (int): 分解する整数",
+			"",
+			"    Returns:",
+			"        list[int]: n を素因数分解した結果のリスト（重複あり、昇順）",
+    		"    \"\"\"",
+			"    factors = []",
+			"    while n % 2 == 0:",
+			"        factors.append(2)",
+			"        n //= 2",
+			"    f = 3",
+			"    while f * f <= n:",
+			"        if n % f == 0:",
+			"            factors.append(f)",
+			"            n //= f",
+			"        else:",
+			"            f += 2",
+			"    if n != 1:",
+			"        factors.append(n)",
+			"    return factors",
+			"$1"
+		]
+	}
+}
