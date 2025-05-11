@@ -13,11 +13,17 @@ INF = float('inf')
 
 #def
 def find_midpoint(x1, y1, x2, y2):
+    """
+    二点(x1, y1), (x2, y2)の中点を求める関数
+    """
     midpoint_x = (x1 + x2) / 2
     midpoint_y = (y1 + y2) / 2
     return midpoint_x, midpoint_y
 
 def rotate_point(x, y, angle):
+    """
+    座標(x, y)を原点を中心に、angleだけ反時計回りに回転させる関数
+    """
     # 角度をラジアンに変換
     theta = radians(angle)
     # 回転行列の適用
