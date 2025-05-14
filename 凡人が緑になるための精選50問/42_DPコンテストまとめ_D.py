@@ -12,6 +12,7 @@ INF = float('inf')
 #class
 
 #def
+ここを変える
 
 #main
 def main():
