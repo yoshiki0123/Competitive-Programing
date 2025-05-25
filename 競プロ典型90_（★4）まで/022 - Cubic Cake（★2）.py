@@ -1,7 +1,7 @@
 #library
 import sys, re, heapq
 from math import sin, cos, radians, ceil, floor, sqrt, isqrt, pi, gcd, comb
-from collections import deque, Counter
+from collections import deque, Counter, defaultdict
 from bisect import bisect, bisect_left, bisect_right
 from functools import lru_cache
 from itertools import permutations, combinations, product
@@ -15,22 +15,19 @@ INF = float('inf')
 
 #main
 def main():
-    H, N = map(int,input().split())
-    dp = [INF] * (H+1)
-    dp[0] = 0
+    A, B, C = map(int,input().split())
+    GCD = gcd(A, B, C)
 
-    for i in range(N):
-        A, B = map(int,input().split())
-        for h in range(H+1):
-            if h + A <= H:
-                dp[h+A] = min(dp[h+A], dp[h] + B)
-            else:
-                dp[H] = min(dp[H], dp[h] + B)
+    ans = 0
+    for e in [A, B, C]:
+        ans += e // GCD - 1
+    
+    print(ans)
 
-    print(dp[H])
-        
+
 
     
+
     
 
 if __name__ == '__main__':
