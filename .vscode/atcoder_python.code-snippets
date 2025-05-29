@@ -186,5 +186,63 @@
 			"    return numerator * denominator_inv % mod",
 			"$1"
 		]
+	},
+
+	"base_10": {
+		"prefix": "base_10",
+		"body": [
+			"def base_10(num_n, n):",
+			"    \"\"\"",
+			"    n 進数で表された整数を 10 進数に変換する。",
+			"",
+			"    Parameters:",
+			"        num_n (int | str): n 進数で表された数（各桁は 0 ≦ d < n）。",
+			"        n (int): 基数。",
+			"",
+			"    Returns:",
+			"        int: 10 進数に変換した結果。",
+			"    \"\"\"",
+			"    num_10 = 0",
+			"    for s in str(num_n):",
+			"        num_10 *= n",
+			"        num_10 += int(s)",
+			"    return num_10",
+			"$1"
+		]
+	},
+
+	"base_n": {
+		"prefix": "base_n",
+		"body": [
+			"def base_n(num_10, n):",
+			"    \"\"\"",
+			"    10 進数の整数を n 進数表記の整数へ変換する。",
+			"",
+			"    Parameters:",
+			"        num_10 (int): 10 進数の整数。",
+			"        n (int): 基数 (2 ≦ n ≦ 10)。",
+			"",
+			"    Returns:",
+			"        int: n 進数で表した整数。",
+			"             基数 n が 10 未満でない桁が生じる場合は -1 を返す。",
+			"    \"\"\"",
+			"    if num_10 == 0:",
+			"        return 0",
+			"",
+			"    str_n = ''",
+			"    while num_10:",
+			"        digit = num_10 % n",
+			"        if digit >= 10:",
+			"            return -1  # n > 10 に対応しない簡易実装",
+			"        str_n += str(digit)",
+			"        num_10 //= n",
+			"",
+			"    return int(str_n[::-1])"
+		]
 	}
+
+
+
+
+	
 }
