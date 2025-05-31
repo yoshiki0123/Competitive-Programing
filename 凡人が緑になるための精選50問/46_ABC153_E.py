@@ -15,16 +15,23 @@ INF = float('inf')
 
 #main
 def main():
-    K = int(input())
-    ans = 7 % K
-    for i in range(1, K+1):
-        if ans == 0:
-            print(i)
-            exit()
-        else:
-            ans = (ans*10 + 7) % K
+    H, N = map(int,input().split())
+    dp = [INF] * (H+1)
+    dp[0] = 0
+
+    for i in range(N):
+        A, B = map(int,input().split())
+        for h in range(H+1):
+            if h + A <= H:
+                dp[h+A] = min(dp[h+A], dp[h] + B)
+            else:
+                dp[H] = min(dp[H], dp[h] + B)
+
+    print(dp[H])
+        
+
     
-    print(-1)
+    
 
 if __name__ == '__main__':
     main()

@@ -1,7 +1,7 @@
 #library
 import sys, re, heapq
 from math import sin, cos, radians, ceil, floor, sqrt, isqrt, pi, gcd, comb
-from collections import deque, Counter
+from collections import deque, Counter, defaultdict
 from bisect import bisect, bisect_left, bisect_right
 from functools import lru_cache
 from itertools import permutations, combinations, product
@@ -15,16 +15,16 @@ INF = float('inf')
 
 #main
 def main():
-    K = int(input())
-    ans = 7 % K
-    for i in range(1, K+1):
-        if ans == 0:
+    N = int(input())
+    users = set()
+    for i in range(1,N+1):
+        user = input()
+        if user not in users:
             print(i)
-            exit()
-        else:
-            ans = (ans*10 + 7) % K
+            users.add(user)
+
+
     
-    print(-1)
 
 if __name__ == '__main__':
     main()
