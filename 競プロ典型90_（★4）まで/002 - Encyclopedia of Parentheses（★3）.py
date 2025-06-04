@@ -12,6 +12,7 @@ INF = float('inf')
 #class
 
 #def
+# カッコ列 S が整合しているかどうか
 def isvalid(s):
     score = 0
     for c in list(s):
@@ -19,19 +20,20 @@ def isvalid(s):
             score += 1
         else:
             score -= 1
+        # 途中で0を下回るとFalse    
         if score < 0:
             return False
-    if score == 0:
-        return True
-    else:
-        return False
+    # 最後に0ならTrue、そうでなければFalse
+    return score == 0
     
 #main
 def main():
     N = int(input())
+    # ()列を順に列挙
     for bit in range(1 << N):
         s = ''
-        for i in range(N):
+        # 最上位桁から順に見ていく　0 -> '(' , 1 -> ')'
+        for i in range(N-1, -1, -1):
             if bit & (1 << i):
                 s += ')'
             else:
