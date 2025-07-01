@@ -15,7 +15,7 @@ INF = float('inf')
 
 #main
 def main():
-    N
+    N = 
     
 
 if __name__ == '__main__':
