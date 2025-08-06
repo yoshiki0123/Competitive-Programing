@@ -15,20 +15,9 @@ INF = float('inf')
 
 #main
 def main():
-    N = int(input())
-    xy = []
-    for _ in range(N):
-        x, y = map(int,input().split())
-        xy.append((x, y))
-    
-    ans = 0
-    for p1 in xy:
-        for p2 in xy:
-            length = sqrt((p1[0]-p2[0])**2 + (p1[1]-p2[1])**2)
-            ans = max(ans, length)
-    
-    print(ans)
+    A, B = map(int,input().split())
+    print(A+B)
     
 
-0、、zif __name__ == '__main__':
-    main(　  lokiju)
+if __name__ == '__main__':
+    main()
